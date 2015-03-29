@@ -61,14 +61,20 @@ std::string getMorseCode(const std::map<std::string,std::string> & morse_map,std
 }
 
 void generateBeep(const std::string code){
+
+	unsigned int speed = 1;
+	unsigned int beep_duration,sleep_duration;
+	beep_duration  = 250/speed;
+	sleep_duration = 300/speed;
+
 	for(std::string::size_type i = 0; i < code.size(); ++i) {
 		cout<<code[i];
 
 		//Beep(freq,duration)
-		if      (code[i]=='.') 	Beep(600,250);
-		else if	(code[i]=='-')	Beep(600,500);
-		else if	(code[i]==' ')	Sleep(300);
-		else if	(code[i]=='|')	Sleep(300);
+		if      (code[i]=='.') 	Beep(600,beep_duration);
+		else if	(code[i]=='-')	Beep(600,beep_duration*2);
+		else if	(code[i]==' ')	Sleep(sleep_duration);
+		else if	(code[i]=='|')	Sleep(sleep_duration);
 		else                    cout<<"Unexpected code: ["<<code[i]<<"]"<<endl;
 	}
 }
