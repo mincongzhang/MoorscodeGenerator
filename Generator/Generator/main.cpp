@@ -53,7 +53,7 @@ std::string getMorseCode(const std::map<std::string,std::string> & morse_map,std
 			morse_code += map_iter->second;
 			morse_code += " ";	 //add space after each letter
 		} else {
-		cout<<"Unexpected input: ["<<s_word<<"]!"<<endl;
+		cout<<"Unexpected input: ["<<s_word<<"]"<<endl;
 		}
 	}
 
@@ -68,7 +68,8 @@ void generateBeep(const std::string code){
 		if      (code[i]=='.') 	Beep(600,250);
 		else if	(code[i]=='-')	Beep(600,500);
 		else if	(code[i]==' ')	Sleep(300);
-		else                    cout<<"Unexpected code: ["<<code[i]<<"]!"<<endl;
+		else if	(code[i]=='|')	Sleep(300);
+		else                    cout<<"Unexpected code: ["<<code[i]<<"]"<<endl;
 	}
 }
 
@@ -117,5 +118,5 @@ void initialMorseMapping(std::map<std::string,std::string> & morse_map){
 	morse_map["8"]="---..";
 	morse_map["9"]="----.";
 	morse_map["0"]="-----";
-	morse_map[" "]=" ";
+	morse_map[" "]="|";
 }
