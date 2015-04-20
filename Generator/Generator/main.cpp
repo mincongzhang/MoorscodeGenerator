@@ -6,6 +6,8 @@
 
 using namespace std;
 
+typedef std::map<std::string,std::string>::value_type morse_value;
+
 void initialMorseMapping(std::map<std::string,std::string> & morse_map);
 void printMapping(const std::map<std::string,std::string> & morse_map);
 void generateBeep(const std::string code);
@@ -64,8 +66,8 @@ void generateBeep(const std::string code){
 
 	unsigned int speed = 1;
 	unsigned int beep_duration,sleep_duration;
-	beep_duration  = 250/speed;
-	sleep_duration = 300/speed;
+	beep_duration  = 125/speed;
+	sleep_duration = 250/speed;
 
 	for(std::string::size_type i = 0; i < code.size(); ++i) {
 		cout<<code[i];
@@ -88,41 +90,43 @@ void printMapping(const std::map<std::string,std::string> & morse_map){
 }
 
 void initialMorseMapping(std::map<std::string,std::string> & morse_map){
-	morse_map["A"]=".-";
-	morse_map["B"]="-...";
-	morse_map["C"]="-.-.";
-	morse_map["D"]="-..";
-	morse_map["E"]=".";
-	morse_map["F"]="..-.";
-	morse_map["G"]="--.";
-	morse_map["H"]="....";
-	morse_map["I"]="..";
-	morse_map["J"]=".---";
-	morse_map["K"]="-.-";
-	morse_map["L"]=".-..";
-	morse_map["M"]="--";
-	morse_map["N"]="-.";
-	morse_map["O"]="---";
-	morse_map["P"]=".--.";
-	morse_map["Q"]="--.-";
-	morse_map["R"]=".-.";
-	morse_map["S"]="...";
-	morse_map["T"]="-";
-	morse_map["U"]="..-";
-	morse_map["V"]="...-";
-	morse_map["W"]=".--";
-	morse_map["X"]="-..-";
-	morse_map["Y"]="-.--";
-	morse_map["Z"]="--..";
-	morse_map["1"]=".----";
-	morse_map["2"]="..---";
-	morse_map["3"]="...--";
-	morse_map["4"]="....-";
-	morse_map["5"]=".....";
-	morse_map["6"]="-....";
-	morse_map["7"]="--...";
-	morse_map["8"]="---..";
-	morse_map["9"]="----.";
-	morse_map["0"]="-----";
-	morse_map[" "]="|";
+	//avoid stupid morse_map["A"]=".-";
+	//that will search and create an empty element then insert
+	morse_map.insert(morse_value("A", ".-"));
+	morse_map.insert(morse_value("B","-..."));
+	morse_map.insert(morse_value("C","-.-."));
+	morse_map.insert(morse_value("D","-.."));
+	morse_map.insert(morse_value("E","."));
+	morse_map.insert(morse_value("F","..-."));
+	morse_map.insert(morse_value("G","--."));
+	morse_map.insert(morse_value("H","...."));
+	morse_map.insert(morse_value("I",".."));
+	morse_map.insert(morse_value("J",".---"));
+	morse_map.insert(morse_value("K","-.-"));
+	morse_map.insert(morse_value("L",".-.."));
+	morse_map.insert(morse_value("M","--"));
+	morse_map.insert(morse_value("N","-."));
+	morse_map.insert(morse_value("O","---"));
+	morse_map.insert(morse_value("P",".--."));
+	morse_map.insert(morse_value("Q","--.-"));
+	morse_map.insert(morse_value("R",".-."));
+	morse_map.insert(morse_value("S","..."));
+	morse_map.insert(morse_value("T","-"));
+	morse_map.insert(morse_value("U","..-"));
+	morse_map.insert(morse_value("V","...-"));
+	morse_map.insert(morse_value("W",".--"));
+	morse_map.insert(morse_value("X","-..-"));
+	morse_map.insert(morse_value("Y","-.--"));
+	morse_map.insert(morse_value("Z","--.."));
+	morse_map.insert(morse_value("1",".----"));
+	morse_map.insert(morse_value("2","..---"));
+	morse_map.insert(morse_value("3","...--"));
+	morse_map.insert(morse_value("4","....-"));
+	morse_map.insert(morse_value("5","....."));
+	morse_map.insert(morse_value("6","-...."));
+	morse_map.insert(morse_value("7","--..."));
+	morse_map.insert(morse_value("8","---.."));
+	morse_map.insert(morse_value("9","----."));
+	morse_map.insert(morse_value("0","-----"));
+	morse_map.insert(morse_value(" ","|"));
 }
