@@ -92,6 +92,7 @@ void printMapping(const std::map<std::string,std::string> & morse_map){
 void initialMorseMapping(std::map<std::string,std::string> & morse_map){
 	//avoid stupid morse_map["A"]=".-";
 	//that will search and create an empty element then insert
+	//(even find this happened in industrial code created by professional engineer...)
 	morse_map.insert(morse_value("A", ".-"));
 	morse_map.insert(morse_value("B","-..."));
 	morse_map.insert(morse_value("C","-.-."));
